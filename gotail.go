@@ -27,8 +27,10 @@ func main() {
 		}
 		offset += int64(readBytes)
 		if readBytes != 0 {
-			s := string(buffer[:readBytes])
-			fmt.Printf("%s",s)
+			lines := bytes.Split(buffer[:readBytes],'\n\r')
+			fmt.Println("lines: ",len(lines))
+			//s := string(buffer[:readBytes])
+			//fmt.Printf("%s",s)
 		}
 		time.Sleep(time.Second)
 	}
